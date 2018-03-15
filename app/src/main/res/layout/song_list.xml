@@ -8,6 +8,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/song_list"
+            android:textSize="@dimen/text"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
         <ListView android:id="@+id/list"
             android:layout_height="0dip"
             android:layout_width="match_parent"

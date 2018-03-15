@@ -18,7 +18,9 @@
         </activity>
         <activity
             android:name=".SongListActivity"
-            android:label="@string/song_list" />
+            android:label="@string/song_list"
+            android:parentActivityName="com.example.android.musicapp.MainActivity"
+            />
     </application>
 
 </manifest>

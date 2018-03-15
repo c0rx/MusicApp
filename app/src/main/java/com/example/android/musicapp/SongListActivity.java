@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 public class SongListActivity extends AppCompatActivity {
 
+    static final String songA = "song_artist";
+    static final String songT = "song_title";
+    static final String songIcon = "icon";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +45,12 @@ public class SongListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Intent mainActivityIntent = new Intent(getApplicationContext(), MainActivity.class);
                 SongList song = adapter.getItem(position);
-                i.putExtra("song_artist", song.getSongArtist());
-                i.putExtra("song_title", song.getSongTitle());
-                i.putExtra("icon", song.getSongImage());
-                setResult(Activity.RESULT_OK, i);
+                mainActivityIntent.putExtra(songA, song.getSongArtist());
+                mainActivityIntent.putExtra(songT, song.getSongTitle());
+                mainActivityIntent.putExtra(songIcon, song.getSongImage());
+                setResult(Activity.RESULT_OK, mainActivityIntent);
                 finish();
                 }
             }

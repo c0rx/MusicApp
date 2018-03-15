@@ -2,4 +2,8 @@
     <string name="app_name">MusicApp</string>
     <string name="song_list">Song list</string>
     <string name="go_back">Go back</string>
+    <string name="music_player">Music Player</string>
+    <string name="error">Error - not found</string>
+    <string name="now_playing">Now playing %1$s by %2$s</string>
+
 </resources>

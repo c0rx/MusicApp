@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String songA = "song_artist";
+    static final String songT = "song_title";
+    static final String songIcon = "icon";
+    TextView pos;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +49,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent i) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent resultIntent) {
 
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
-                TextView pos = findViewById(R.id.song_name);
-                String artist = i.getStringExtra("song_artist");
-                String title = i.getStringExtra("song_title");
-                int icon = i.getIntExtra("icon", 0);
-                pos.setText("Now playing: " + title + " by " + artist);
+
+                String artist = resultIntent.getStringExtra(songA);
+                String title = resultIntent.getStringExtra(songT);
+                int icon = resultIntent.getIntExtra(songIcon, 0);
+
+                pos = findViewById(R.id.song_name);
+                pos.setText(getResources().getString(R.string.now_playing, artist, title));
 
                 Drawable img = ContextCompat.getDrawable(this, icon);
                 img.setBounds(0, 0, 150, 150);
@@ -61,8 +68,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if (resultCode == Activity.RESULT_CANCELED) {
 
-                TextView pos2 = findViewById(R.id.song_name);
-                pos2.setText("Error - not found");
+                pos.getResources().getString(R.string.error);
 
                 }
             }
