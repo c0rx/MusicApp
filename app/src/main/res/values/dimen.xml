@@ -3,5 +3,6 @@
 
         <dimen name="text">20sp</dimen>
         <dimen name="padding">20dp</dimen>
+        <dimen name="padding_left">16dp</dimen>
 
 </resources>
